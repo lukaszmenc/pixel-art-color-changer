@@ -1,4 +1,5 @@
 from PyQt5 import QtWidgets, QtGui, QtCore
+
 from scripts.interface_utils import open_image, save_image
 
 
@@ -31,7 +32,7 @@ class Interface(QtWidgets.QWidget):
         button_open_file.setShortcut('Ctrl+O')
 
         button_save_image = QtWidgets.QPushButton("Save image")
-        button_save_image.clicked.connect(save_image)
+        button_save_image.clicked.connect(lambda: save_image(self.image_label))
         button_save_image.setShortcut('Ctrl+S')
 
         menu.addWidget(button_open_file)
