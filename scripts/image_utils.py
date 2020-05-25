@@ -48,5 +48,4 @@ def change_color(button, label):
                 r_c, g_c, b_c, a_c = image.load()[x, y]
                 if r_c == r_p and g_c == g_p and b_c == b_p:
                     image.load()[x, y] = (r_n, g_n, b_n, a_c)
-        print(image.getcolors())
         display_image(label, image)
