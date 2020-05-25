@@ -7,16 +7,16 @@ from PyQt5 import QtWidgets
 from scripts.image_utils import rgb_to_hex, change_color, display_image
 
 
+class ColorButton(QtWidgets.QPushButton):
+    def __init__(self, color, label):
+        super(ColorButton, self).__init__()
+        self.setStyleSheet(f"background-color:{color}")
+        self.clicked.connect(lambda: change_color(self, label))
+
+
 def get_file_path():
     file_path, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Wybór pliku", os.path.expanduser("~/Desktop"), "PNG (*.png);;JPG (*.jpg, *.jpeg)")
     return file_path
-
-
-def create_button(color, label):
-    button = QtWidgets.QPushButton()
-    button.setStyleSheet(f"background-color:{color}")
-    button.clicked.connect(lambda: change_color(button, label))
-    return button
 
 
 def remove_buttons(layout):
@@ -36,7 +36,7 @@ def open_image(label, layout):
 
         remove_buttons(layout)
         for color in colors_hex:
-            button = create_button(color, label)
+            button = ColorButton(color, label)
             layout.addWidget(button)
 
 
