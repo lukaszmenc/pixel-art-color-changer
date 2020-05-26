@@ -4,7 +4,7 @@ from PIL import Image
 
 from PyQt5 import QtWidgets
 
-from scripts.image_utils import rgb_to_hex, change_color, display_image
+from scripts.image_utils import rgb_to_hex, change_color, display_image, hex_to_hsv
 
 
 class ColorButton(QtWidgets.QPushButton):
@@ -33,6 +33,7 @@ def open_image(label, layout):
         colors = image.getcolors()
         colors_rgba = [color[1] for color in colors]
         colors_hex = [rgb_to_hex(color) for color in colors_rgba]
+        colors_hex.sort(key=hex_to_hsv)
 
         remove_buttons(layout)
         for color in colors_hex:

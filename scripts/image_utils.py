@@ -1,4 +1,5 @@
 import io
+import colorsys
 
 from PIL import Image
 from PIL.ImageQt import ImageQt
@@ -24,6 +25,11 @@ def rgb_to_hex(color_rgb):
 
 def hex_to_rgb(color_hex):
     return tuple(int(color_hex.lstrip('#')[i:i+2], 16) for i in (0, 2, 4))
+
+
+def hex_to_hsv(color_hex):
+    r, g, b = (int(color_hex.lstrip('#')[i:i+2], 16) / 255.0 for i in range(0, 5, 2))
+    return colorsys.rgb_to_hsv(r, g, b)
 
 
 def change_color(button, label):
