@@ -1,9 +1,6 @@
 import os
-
 from PIL import Image
-
 from PyQt5 import QtWidgets
-
 from scripts.image_utils import rgb_to_hex, change_color, display_image, hex_to_hsv
 
 
@@ -15,7 +12,12 @@ class ColorButton(QtWidgets.QPushButton):
 
 
 def get_file_path():
-    file_path, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Wybór pliku", os.path.expanduser("~/Desktop"), "PNG (*.png);;JPG (*.jpg, *.jpeg)")
+    file_path, _ = QtWidgets.QFileDialog.getOpenFileName(
+        None,
+        "Wybór pliku",
+        os.path.expanduser("~/Desktop"),
+        "PNG (*.png);;JPG (*.jpg, *.jpeg)",
+    )
     return file_path
 
 
@@ -42,5 +44,7 @@ def open_image(label, layout):
 
 
 def save_image(label):
-    path = QtWidgets.QFileDialog.getSaveFileName(None, 'Save as...', "name.png", '*.png')
+    path = QtWidgets.QFileDialog.getSaveFileName(
+        None, "Save as...", "name.png", "*.png"
+    )
     label.pixmap().save(path[0])

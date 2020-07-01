@@ -1,5 +1,4 @@
 from PyQt5 import QtWidgets, QtGui, QtCore
-
 from scripts.interface_utils import open_image, save_image
 
 
@@ -15,7 +14,9 @@ class Interface(QtWidgets.QWidget):
 
         self.color_box = QtWidgets.QFrame(self.color_box_scroll)
         self.color_box.setLayout(QtWidgets.QVBoxLayout())
-        self.color_box.layout().setAlignment(QtCore.Qt.AlignTop | QtCore.Qt.AlignHCenter)
+        self.color_box.layout().setAlignment(
+            QtCore.Qt.AlignTop | QtCore.Qt.AlignHCenter
+        )
 
         self.color_box_scroll.setWidget(self.color_box)
 
@@ -28,12 +29,14 @@ class Interface(QtWidgets.QWidget):
         menu = QtWidgets.QHBoxLayout()
 
         button_open_file = QtWidgets.QPushButton("Open file")
-        button_open_file.clicked.connect(lambda: open_image(self.image_label, self.color_box.layout()))
-        button_open_file.setShortcut('Ctrl+O')
+        button_open_file.clicked.connect(
+            lambda: open_image(self.image_label, self.color_box.layout())
+        )
+        button_open_file.setShortcut("Ctrl+O")
 
         button_save_image = QtWidgets.QPushButton("Save image")
         button_save_image.clicked.connect(lambda: save_image(self.image_label))
-        button_save_image.setShortcut('Ctrl+S')
+        button_save_image.setShortcut("Ctrl+S")
 
         menu.addWidget(button_open_file)
         menu.addWidget(button_save_image)
