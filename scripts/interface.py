@@ -23,6 +23,10 @@ class Interface(QtWidgets.QWidget):
         self.image_label = QtWidgets.QLabel(self)
         self.image_label.setAlignment(QtCore.Qt.AlignCenter)
 
+        self.original_image_label = QtWidgets.QLabel(self)
+        self.original_image_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.original_image_label.setToolTip('Original image')
+
         self.main_window()
 
     def main_window(self):
@@ -31,7 +35,7 @@ class Interface(QtWidgets.QWidget):
 
         button_open_file = QtWidgets.QPushButton("Open file")
         button_open_file.clicked.connect(
-            lambda: open_image(self.image_label, self.color_box.layout())
+            lambda: open_image(self.image_label, self.original_image_label, self.color_box.layout())
         )
         button_open_file.setShortcut("Ctrl+O")
 
@@ -58,7 +62,11 @@ class Interface(QtWidgets.QWidget):
         colors_menu_widget.setLayout(colors_menu_layout)
         colors_menu_widget.setFixedWidth(160)
 
-        main_view.addWidget(self.image_label)
+        images = QtWidgets.QVBoxLayout()
+        images.addWidget(self.image_label)
+        images.addWidget(self.original_image_label)
+
+        main_view.addLayout(images)
         main_view.addWidget(colors_menu_widget)
 
         window = QtWidgets.QVBoxLayout()

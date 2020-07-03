@@ -13,7 +13,7 @@ Simply run
 - `pacc.py` on Windows
 
 in project's directory to run the app.
-1. Load image using "Open file" button. App will display the image and prepare the color palette.
+1. Load image using "Open file" button. App will display the image and prepare the color palette. Thumbnail at the bottom will always show the original image.
 
 ![Main view image](https://github.com/lukaszmenc/pixel-art-color-changer/blob/master/images/mainview.PNG)
 

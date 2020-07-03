@@ -27,11 +27,12 @@ def remove_buttons(layout):
         layout.itemAt(i).widget().setParent(None)
 
 
-def open_image(label, layout):
+def open_image(label, original_label, layout):
     file_path = get_file_path()
     if file_path:
         image = Image.open(file_path).convert("RGBA")
         display_image(label, image)
+        display_image(original_label, image.resize((round(0.3*image.size[0]), round(0.3*image.size[1]))))
 
         colors = image.getcolors()
         colors_rgba = [color[1] for color in colors]
