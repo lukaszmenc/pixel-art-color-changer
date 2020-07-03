@@ -11,7 +11,7 @@ Install requirements using `pip install -r requirements.txt`.
 Run `python pacc.py` to run the app.
 1. Load image using "Open file" button. App will display the image and prepare the color palette.
 
-![](https://raw.githubusercontent.com/lukaszmenc/pixel-art-color-changer/blob/master/images/mainview.png)
+![Main view image](https://github.com/lukaszmenc/pixel-art-color-changer/blob/master/images/mainview.PNG)
 
 2. On the right "Colors" panel click the color you want to change.
 3. Use "Save image" button to save the currently displayed image in desired location.
