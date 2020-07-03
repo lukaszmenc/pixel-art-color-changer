@@ -7,7 +7,7 @@ class Interface(QtWidgets.QWidget):
         super().__init__(parent)
 
         self.appname = "PACC"
-        self.showMaximized()
+        self.resize(640, 480)
 
         self.color_box_scroll = QtWidgets.QScrollArea()
         self.color_box_scroll.setWidgetResizable(True)
