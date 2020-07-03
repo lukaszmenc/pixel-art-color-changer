@@ -7,8 +7,6 @@ from scripts.image_utils import rgb_to_hex, change_color, display_image, hex_to_
 class ColorButton(QtWidgets.QPushButton):
     def __init__(self, color, label):
         super(ColorButton, self).__init__()
-        print(f"button color: {color}")
-        print(f"hsv: {hex_to_hsv(color)}")
         self.setText(color)
         self.setStyleSheet(f"background-color: {color}; color: {'#000000' if hex_to_hsv(color)[2] > 0.5 else '#FFFFFF'}")
         self.clicked.connect(lambda: change_color(self, label))
