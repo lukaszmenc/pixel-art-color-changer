@@ -7,7 +7,7 @@ class Interface(QtWidgets.QWidget):
         super().__init__(parent)
 
         self.appname = "PACC"
-        self.setFixedSize(640, 480)
+        self.showMaximized()
 
         self.color_box_scroll = QtWidgets.QScrollArea()
         self.color_box_scroll.setWidgetResizable(True)
@@ -21,6 +21,7 @@ class Interface(QtWidgets.QWidget):
         self.color_box_scroll.setWidget(self.color_box)
 
         self.image_label = QtWidgets.QLabel(self)
+        self.image_label.setAlignment(QtCore.Qt.AlignCenter)
 
         self.main_window()
 
@@ -49,12 +50,16 @@ class Interface(QtWidgets.QWidget):
         label_colors.setFont(label_colors_font)
         label_colors.setAlignment(QtCore.Qt.AlignHCenter)
 
-        colors_menu = QtWidgets.QVBoxLayout()
-        colors_menu.addWidget(label_colors)
-        colors_menu.addWidget(self.color_box_scroll)
+        colors_menu_layout = QtWidgets.QVBoxLayout()
+        colors_menu_layout.addWidget(label_colors)
+        colors_menu_layout.addWidget(self.color_box_scroll)
+
+        colors_menu_widget = QtWidgets.QWidget()
+        colors_menu_widget.setLayout(colors_menu_layout)
+        colors_menu_widget.setFixedWidth(160)
 
         main_view.addWidget(self.image_label)
-        main_view.addLayout(colors_menu)
+        main_view.addWidget(colors_menu_widget)
 
         window = QtWidgets.QVBoxLayout()
         window.addLayout(menu)
