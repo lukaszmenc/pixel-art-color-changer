@@ -43,10 +43,11 @@ def change_color(button, label):
     previous_color = button.palette().color(QtGui.QPalette.Background).name()
 
     new_color = get_color()
-    r_p, g_p, b_p = hex_to_rgb(previous_color)
-    r_n, g_n, b_n = hex_to_rgb(new_color)
 
     if new_color:
+        r_p, g_p, b_p = hex_to_rgb(previous_color)
+        r_n, g_n, b_n = hex_to_rgb(new_color)
+
         button.setStyleSheet(f"background-color:{new_color}")
 
         for y in range(image.size[1]):
